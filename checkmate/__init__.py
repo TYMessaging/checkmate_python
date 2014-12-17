@@ -1,0 +1,1 @@
+from checkmate import CheckMate
