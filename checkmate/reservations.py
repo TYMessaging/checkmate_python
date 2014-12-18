@@ -21,4 +21,4 @@ class Reservations:
         if exclude_properties:
             params['exclude_properties'] = 'true'
 
-        return self.client._request('GET', url, params)
+        return self.client.request('GET', url, params)
