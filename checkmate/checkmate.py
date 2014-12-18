@@ -1,6 +1,8 @@
 import requests
 from attrdict import AttrDict
 
+from reservations import Reservations
+
 try:
     import ujson as json
 except ImportError:
@@ -20,10 +22,7 @@ class CheckMate:
             'X-CheckMate-API-Token': self.api_key,
             'Accept': 'application/json'
         })
-
-    def list_reservations(self, params={}):
-        reservations = self._request('GET', '/reservations', params)
-        return reservations
+        self.reservations = Reservations(self)
 
     def _request(self, method, url, params={}):
         response = self.session.request(method,
