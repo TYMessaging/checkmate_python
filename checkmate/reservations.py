@@ -22,3 +22,11 @@ class Reservations:
             params['exclude_properties'] = 'true'
 
         return self.client.request('GET', url, params)
+
+    def create(self, params={}):
+        url = '/reservations'
+        if 'property_id' in params:
+            property_id = params['property_id']
+            url = '/properties/{id}/reservations'.format(id=property_id)
+
+        return self.client.request('POST', url, params)
