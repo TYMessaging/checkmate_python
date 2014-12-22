@@ -27,7 +27,7 @@ class TestReservations(unittest.TestCase):
             'total_pages': 1,
             'links': []
         }
-        self.create_response = {
+        self.reservation_response = {
             'id': 123,
             'confirmation_number': '12347'
         }
@@ -92,10 +92,10 @@ class TestReservations(unittest.TestCase):
     def test_create(self):
         url = 'http://partners.checkmate.dev/reservations'
         responses.add(responses.POST, url,
-                      body=json.dumps(self.create_response), status=201,
+                      body=json.dumps(self.reservation_response), status=201,
                       content_type='application/json')
         reservation = self.reservations_client.create(self.create_params)
-        self.assertEqual(reservation.id, self.create_response['id'])
+        self.assertEqual(reservation.id, self.reservation_response['id'])
 
     def test_create_url(self):
         self.reservations_client.client.request = MagicMock(name='request')
@@ -115,3 +115,32 @@ class TestReservations(unittest.TestCase):
         mocked_request.assert_called_once_with('POST',
                                                '/properties/123/reservations',
                                                params)
+
+    @responses.activate
+    def test_show(self):
+        url = 'http://partners.checkmate.dev/reservations/123'
+        responses.add(responses.GET, url,
+                      body=json.dumps(self.reservation_response), status=200,
+                      content_type='application/json')
+        reservation = self.reservations_client.show(123)
+        self.assertEqual(reservation.id, self.reservation_response['id'])
+
+    @responses.activate
+    def test_update(self):
+        url = 'http://partners.checkmate.dev/reservations/123'
+        responses.add(responses.PUT, url,
+                      body=json.dumps(self.reservation_response), status=200,
+                      content_type='application/json')
+        update_params = {'loyalty_number': '123456789qwerty'}
+        reservation = self.reservations_client.update(123, update_params)
+        self.assertEqual(reservation.id, self.reservation_response['id'])
+
+    @responses.activate
+    def test_destroy(self):
+        url = 'http://partners.checkmate.dev/reservations/123'
+        responses.add(responses.DELETE, url,
+                      status=204,
+                      content_type='application/json')
+        response = self.reservations_client.destroy(123)
+        print response
+        self.assertEqual(response, {})

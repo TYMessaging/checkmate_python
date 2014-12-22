@@ -29,7 +29,10 @@ class ApiRequester:
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
 
-        result = response.json()
+        if response.text:
+            result = response.json()
+        else:
+            result = {}
 
         if isinstance(result, list):
             return map(lambda r: AttrDict(r), result)
