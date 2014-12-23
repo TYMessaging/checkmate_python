@@ -77,13 +77,13 @@ class TestReservations(unittest.TestCase):
     def test_list_url(self):
         self.reservations_client.client.request = MagicMock(name='request')
         mocked_request = self.reservations_client.client.request
-        reservations = self.reservations_client.list()
+        self.reservations_client.list()
         mocked_request.assert_called_once_with('GET', '/reservations', {})
 
     def test_list_url_with_property_id(self):
         self.reservations_client.client.request = MagicMock(name='request')
         mocked_request = self.reservations_client.client.request
-        reservations = self.reservations_client.list({'property_id': 2})
+        self.reservations_client.list({'property_id': 2})
         mocked_request.assert_called_once_with('GET',
                                                '/properties/2/reservations',
                                                {'property_id': 2})
@@ -100,7 +100,7 @@ class TestReservations(unittest.TestCase):
     def test_create_url(self):
         self.reservations_client.client.request = MagicMock(name='request')
         mocked_request = self.reservations_client.client.request
-        reservation = self.reservations_client.create(self.create_params)
+        self.reservations_client.create(self.create_params)
         mocked_request.assert_called_once_with('POST',
                                                '/reservations',
                                                self.create_params)
@@ -111,7 +111,7 @@ class TestReservations(unittest.TestCase):
         params = self.create_params.copy()
         del(params['property'])
         params['property_id'] = 123
-        reservation = self.reservations_client.create(params)
+        self.reservations_client.create(params)
         mocked_request.assert_called_once_with('POST',
                                                '/properties/123/reservations',
                                                params)
@@ -161,7 +161,7 @@ class TestReservations(unittest.TestCase):
     def test_bulk_create_params(self):
         self.reservations_client.client.request = MagicMock(name='request')
         mocked_request = self.reservations_client.client.request
-        bulk_reservations = self.reservations_client.bulk_create([])
+        self.reservations_client.bulk_create([])
         mocked_request.assert_called_once_with('POST',
                                                '/reservations/bulk_create',
                                                {'reservations': []})
@@ -170,7 +170,7 @@ class TestReservations(unittest.TestCase):
         cb = "http://example.com/callback"
         self.reservations_client.client.request = MagicMock(name='request')
         mocked_request = self.reservations_client.client.request
-        bulk_reservations = self.reservations_client.bulk_create([], cb)
+        self.reservations_client.bulk_create([], cb)
         mocked_request.assert_called_once_with('POST',
                                                '/reservations/bulk_create',
                                                {

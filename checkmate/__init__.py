@@ -1,1 +1,1 @@
-from checkmate import CheckMate
+from checkmate import CheckMate  # noqa

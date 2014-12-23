@@ -1,7 +1,5 @@
 import unittest
-from mock import MagicMock
 import json
-import requests
 import responses
 import checkmate
 

@@ -154,3 +154,30 @@ client.reservations.bulk_create([{
     'property_id': 123
 }], 'https://example.com/callback')
 ```
+
+## Testing
+
+Install [nose testing framework](https://nose.readthedocs.org/en/latest/):
+
+    pip install nose
+
+Install the [mock](http://www.voidspace.org.uk/python/mock/) mocking and testing library:
+
+    pip install mock
+
+You can run tests by running the following command:
+
+    nosetests
+
+## Linting
+
+Install [flake8](https://pypi.python.org/pypi/flake8):
+
+    pip install flake8
+
+You can run the linter by running
+
+    flake8 checkmate
+
+in the root directory.
+
