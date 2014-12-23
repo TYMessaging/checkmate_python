@@ -1,26 +1,29 @@
 checkmate_python
 ===================
 
-# CheckMate
+CheckMate
+-----------
 
 A Python wrapper for the CheckMate REST API
 
-## Installation
+Installation
+----------------
 
 ***TODO***
 
-## Usage
+Usage
+------------
 
-```python
-import checkmate
-client = checkmate.CheckMate(api_key='YOUR_KEY_HERE')
-```
+.. code-block:: python
+
+    import checkmate
+    client = checkmate.CheckMate(api_key='YOUR_KEY_HERE')
 
 **Note:**: You can also pass in a different API url if needed using the *api_base* keyword argument.
 
-```python
-client = checkmate.CheckMate(api_key='YOUR_KEY_HERE', api_base='API_URL_HERE')
-```
+.. code-block:: python
+
+    client = checkmate.CheckMate(api_key='YOUR_KEY_HERE', api_base='API_URL_HERE')
 
 Refer to the [documentation] (https://partners.checkmate.io/docs) for the final word on what's required/optional for each call.
 
