@@ -24,11 +24,23 @@ client = checkmate.CheckMate(api_key='YOUR_KEY_HERE', api_base='API_URL_HERE')
 
 Refer to the [documentation] (https://partners.checkmate.io/docs) for the final word on what's required/optional for each call.
 
-### Fetch a property
+### Search for a property
 
 You can query the API for a property. All of the fields referenced in the query are required.
 
-***TODO***
+```python
+client.properties.search({
+    'name': 'Hotel Kabuki',
+    'phone': '14159223200',
+    'address': {
+        'street': '1625 Post St',
+        'city': 'San Francisco',
+        'region': 'CA',
+        'postal_code': '94115',
+        'country_code': 'US'
+    }
+})
+```
 
 ### List reservations
 
