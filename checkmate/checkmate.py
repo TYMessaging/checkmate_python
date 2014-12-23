@@ -2,7 +2,7 @@ from reservations import Reservations
 from properties import Properties
 from api_requester import ApiRequester
 
-API_ROOT = 'http://partners.checkmate.dev:3000'
+API_ROOT = 'https://partners.checkmate.io'
 
 
 class CheckMate:
