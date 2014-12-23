@@ -9,7 +9,13 @@ A Python wrapper for the CheckMate REST API
 Installation
 ----------------
 
-***TODO***
+Install:
+
+    pip install checkmate
+
+or
+
+    easy_install checkmate
 
 Usage
 ------------
