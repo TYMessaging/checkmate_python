@@ -9,7 +9,7 @@ except ImportError:
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'checkmate'))
 from version import VERSION
 
-setup(name='checkmate',
+setup(name='checkmate-api',
       version=VERSION,
       description='A Python wrapper for the CheckMate REST API.',
       long_description = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),

@@ -11,11 +11,11 @@ Installation
 
 Install:
 
-    pip install checkmate
+    pip install checkmate-api
 
 or
 
-    easy_install checkmate
+    easy_install checkmate-api
 
 Usage
 ------------
