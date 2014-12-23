@@ -31,7 +31,7 @@ Usage
 
     client = checkmate.CheckMate(api_key='YOUR_KEY_HERE', api_base='API_URL_HERE')
 
-Refer to the [documentation] (https://partners.checkmate.io/docs) for the final word on what's required/optional for each call.
+Refer to the `documentation <https://partners.checkmate.io/docs>`_ for the final word on what's required/optional for each call.
 
 Search for a property
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -174,11 +174,11 @@ Each reservation follows the same format as a single reservation (an optional we
 Testing
 --------
 
-Install [nose testing framework](https://nose.readthedocs.org/en/latest/):
+Install `nose testing framework <https://nose.readthedocs.org/en/latest/>`_:
 
     pip install nose
 
-Install the [mock](http://www.voidspace.org.uk/python/mock/) mocking and testing library:
+Install the `mock <http://www.voidspace.org.uk/python/mock/>`_ mocking and testing library:
 
     pip install mock
 
@@ -189,7 +189,7 @@ You can run tests by running the following command:
 Linting
 --------
 
-Install [flake8](https://pypi.python.org/pypi/flake8):
+Install `flake8 <https://pypi.python.org/pypi/flake8>`_:
 
     pip install flake8
 
