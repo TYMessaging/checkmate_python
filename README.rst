@@ -28,7 +28,7 @@ Usage
 Refer to the [documentation] (https://partners.checkmate.io/docs) for the final word on what's required/optional for each call.
 
 Search for a property
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can query the API for a property. All of the fields referenced in the query are required.
 
@@ -47,7 +47,7 @@ You can query the API for a property. All of the fields referenced in the query 
     })
 
 List reservations
-------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can query the API for all your reservations or the reservations for a specific property.
 
@@ -69,7 +69,7 @@ You can query the API for all your reservations or the reservations for a specif
     client.reservations.list({'exclude_properties': 'true'})
 
 Show reservation
--------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can request a specific reservation from the Checkmate API.
 
@@ -79,7 +79,7 @@ You can request a specific reservation from the Checkmate API.
     client.reservations.show(123452)
 
 Create reservation
--------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can create a reservation in Checkmate using either an existing property id, or by creating a new property within the request.
 
@@ -119,7 +119,7 @@ You can create a reservation in Checkmate using either an existing property id, 
     })
 
 Update reservation
--------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can update an existing reservation in Checkmate using a reservation_id.
 
@@ -129,7 +129,7 @@ You can update an existing reservation in Checkmate using a reservation_id.
     client.reservations.update(12345, {'loyalty_number': 'abs2332'})
 
 Delete reservation
--------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can delete an existing reservation in Checkmate using a reservation_id.
 
@@ -139,7 +139,7 @@ You can delete an existing reservation in Checkmate using a reservation_id.
     client.reservations.destroy(12345)
 
 Bulk create reservations
--------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Each reservation follows the same format as a single reservation (an optional webhook can be added at the end).
 
