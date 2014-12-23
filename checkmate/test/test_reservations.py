@@ -142,5 +142,38 @@ class TestReservations(unittest.TestCase):
                       status=204,
                       content_type='application/json')
         response = self.reservations_client.destroy(123)
-        print response
         self.assertEqual(response, {})
+
+    @responses.activate
+    def test_bulk_create(self):
+        url = 'http://partners.checkmate.dev/reservations/bulk_create'
+        bulk_create_response = [self.reservation_response.copy(),
+                                self.reservation_response.copy()]
+        responses.add(responses.POST, url,
+                      body=json.dumps(bulk_create_response),
+                      status=200,
+                      content_type='application/json')
+        create_params = [self.create_params.copy(), self.create_params.copy()]
+
+        response = self.reservations_client.bulk_create(create_params)
+        self.assertEqual(response, bulk_create_response)
+
+    def test_bulk_create_params(self):
+        self.reservations_client.client.request = MagicMock(name='request')
+        mocked_request = self.reservations_client.client.request
+        bulk_reservations = self.reservations_client.bulk_create([])
+        mocked_request.assert_called_once_with('POST',
+                                               '/reservations/bulk_create',
+                                               {'reservations': []})
+
+    def test_bulk_create_params_with_callback(self):
+        cb = "http://example.com/callback"
+        self.reservations_client.client.request = MagicMock(name='request')
+        mocked_request = self.reservations_client.client.request
+        bulk_reservations = self.reservations_client.bulk_create([], cb)
+        mocked_request.assert_called_once_with('POST',
+                                               '/reservations/bulk_create',
+                                               {
+                                                   'reservations': [],
+                                                   'webhook': cb
+                                               })

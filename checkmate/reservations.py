@@ -21,6 +21,13 @@ class Reservations:
         url = '/reservations/{0}'.format(id)
         return self.client.request('DELETE', url, {})
 
+    def bulk_create(self, reservations=[], webhook=None):
+        url = '/reservations/bulk_create'
+        params = {'reservations': reservations}
+        if webhook:
+            params['webhook'] = webhook
+        return self.client.request('POST', url, params)
+
     def _url(self, params={}):
         if 'property_id' in params:
             property_id = params['property_id']

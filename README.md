@@ -131,4 +131,26 @@ client.reservations.destroy(12345)
 
 ### Bulk create reservations
 
-***TODO***
+Each reservation follows the same format as a single reservation (an optional webhook can be added at the end).
+
+```python
+client.reservations.bulk_create([{
+    'external_id': 'fdoo',
+    'confirmation_number': '',
+    'first_name': 'Frank',
+    'last_name': 'Smith',
+    'email': 'frank@example.com',
+    'start_on': '2015-12-20',
+    'end_on': '2015-12-24',
+    'property_id': 123
+}, {
+    'external_id': 'hfg34',
+    'confirmation_number': 'gjhhffgh456',
+    'first_name': 'John',
+    'last_name': 'Doe',
+    'email': 'johndoe@example.com',
+    'start_on': '2015-11-20',
+    'end_on': '2015-11-24',
+    'property_id': 123
+}], 'https://example.com/callback')
+```
