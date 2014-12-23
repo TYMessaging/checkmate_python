@@ -12,7 +12,7 @@ from version import VERSION
 setup(name='checkmate',
       version=VERSION,
       description='A Python wrapper for the CheckMate REST API.',
-      long_description = open(os.path.join(os.path.dirname(__file__), 'README')).read(),
+      long_description = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
       author='Ryan Eschinger',
       author_email='ryanesc@gmail.com',
       url='http://www.checkmate.io/',
